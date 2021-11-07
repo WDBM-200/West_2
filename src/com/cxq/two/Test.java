@@ -40,10 +40,10 @@ public class Test {
         System.out.println("店里的猫咪："+mcc.myCat);
 //待客
         System.out.println("-----一切就绪 只缺顾客-----");
-        Customer cus = new Customer();
         System.out.println("请输入到店客人人数：");
         int m = input.nextInt();
         for (int i = 0; i < m; i++) {
+            Customer cus = new Customer();
             System.out.println("请输入第 "+(i + 1)+" 位到店客人信息(姓名 rua次数 到店时间(yyyy-MM-dd)：");
             String name = input.next();
             int ruaNum = input.nextInt();
@@ -55,6 +55,8 @@ public class Test {
             mcc.treatCustomer(cus);
         }
         System.out.println("接待客人后余额："+mcc.balance);
+        System.out.println("-----该歇业啦！-----");
+        System.out.println("请输入歇业日期：");
         String date0 = input.next();
         LocalDate date1 = LocalDate.parse(date0,DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         mcc.close(date1);
@@ -90,7 +92,7 @@ public class Test {
             bc.age = age;
             bc.sex = sex;
             return bc;
-        } else if (type.equals("orangecat") || type.equals("橘猫")) {
+        } else {
             System.out.println("橘猫要胖的吗：");
             boolean isFat = input.nextBoolean();
             oc.name = name;
@@ -99,6 +101,5 @@ public class Test {
             oc.isFat = isFat;
             return oc;
         }
-        return bc;
     }
 }
