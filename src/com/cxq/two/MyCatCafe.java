@@ -45,18 +45,12 @@ public class MyCatCafe implements CatCafe{
 //        myCat.add(cat);
 //    }
     @Override
-    public void buyCat(Cat cat) {
-        try {
+    public void buyCat(Cat cat) throws InsufficientBalanceException{
             if (balance < cat.price)
                 throw new InsufficientBalanceException("余额不足 无法购买");
             balance -= cat.price;
             myCat.add(cat);
-        }catch (InsufficientBalanceException e){
-            e.printStackTrace();
-            System.out.println("---余额不足 无法购买---");
         }
-    }
-
     @Override
     public void treatCustomer(Customer customer) {
         try {
