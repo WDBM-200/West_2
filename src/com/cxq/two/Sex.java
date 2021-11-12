@@ -9,6 +9,6 @@ public enum Sex {
     /**
      * 设置性别
      */
-    male,female;
+    male,female,公,母;
 
 }
