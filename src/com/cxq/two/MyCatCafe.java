@@ -11,20 +11,13 @@ public class MyCatCafe implements CatCafe{
     ArrayList<Cat> myCat = new ArrayList<>();
     ArrayList<Customer> myCustomer = new ArrayList<>();
 
-    public MyCatCafe(){
-
-    }
-
-    public MyCatCafe(String name,double balance){
-        this.name = name;
-        this.balance = balance;
-    }
-
     private void getCatMsg(Cat cat){
-        if (cat instanceof BlackCat)
-            System.out.println(((BlackCat)cat).toString());
-        if (cat instanceof OrangeCat)
-            System.out.println(((OrangeCat)cat).toString());
+        if (cat instanceof BlackCat) {
+            System.out.println(((BlackCat)cat));
+        }
+        if (cat instanceof OrangeCat) {
+            System.out.println(((OrangeCat)cat));
+        }
     }
 
     @Override
@@ -35,28 +28,20 @@ public class MyCatCafe implements CatCafe{
                 ", myCustomer=" + myCustomer +
                 '}';
     }
-
-//    @Override
-//    public void buyCat(Cat cat) throws InsufficientBalanceException{
-//        System.out.println(cat.price);
-//        if (balance < cat.price)
-//            throw new InsufficientBalanceException("余额不足 无法购买");
-//        balance -= cat.price;
-//        myCat.add(cat);
-//    }
     @Override
     public void buyCat(Cat cat) throws InsufficientBalanceException{
-            if (balance < cat.price)
+            if (balance < cat.price) {
                 throw new InsufficientBalanceException("余额不足 无法购买");
+            }
             balance -= cat.price;
             myCat.add(cat);
         }
     @Override
     public void treatCustomer(Customer customer) {
         try {
-//            if (myCat == null)
-            if (myCat.size() == 0)
+            if (myCat.isEmpty()) {
                 throw new CatNotFoundException("无猫可RUA");
+            }
             System.out.println("被 "+customer.name+" RUA猫咪的信息：");
             for (int i = 0; i < customer.ruaNum; i++) {
                 int j = (int) (Math.random() * myCat.size());
@@ -74,9 +59,8 @@ public class MyCatCafe implements CatCafe{
     @Override
     public void close(LocalDate localDate) {
         System.out.println(localDate + " 一天顾客信息：");
-        for (int i = 0; i < myCustomer.size(); i++) {
-            Customer aCustomer = myCustomer.get(i);
-            if (aCustomer.timeGet.isEqual(localDate)){
+        for (Customer aCustomer : myCustomer) {
+            if (aCustomer.timeGet.isEqual(localDate)) {
                 System.out.println(aCustomer);
                 profitOne += aCustomer.ruaNum * 15;
             }

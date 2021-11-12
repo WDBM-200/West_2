@@ -19,21 +19,25 @@ public class Test {
         System.out.println("请输入要买猫的数量：");
         int n = input.nextInt();
         for (int i = 0; i < n; i++) {
-            Cat aCat = newCat(i); //搞新猫
+//搞新猫
+            Cat aCat = newCat(i);
             try {
                 mcc.buyCat(aCat);
             }catch (InsufficientBalanceException e){
                 e.printStackTrace();
                 System.out.println("---余额不足 仅有 " + mcc.balance + " 元"+" 无法购买---");
-                if (aCat instanceof BlackCat && mcc.balance >= 200){  //橘猫价格
+                if (aCat instanceof BlackCat && mcc.balance >= 200){
                     System.out.println("可以买一只橘猫哦！买吗？(true or false)");
                     boolean buy = input.nextBoolean();
-                    if (buy)
+                    if (buy) {
                         i--;
-                    else break;
+                    } else {
+                        break;
+                    }
                 }
-                else
+                else {
                     break;
+                }
             }
         }
         System.out.println("买猫后余额："+mcc.balance+" 元");
@@ -68,10 +72,11 @@ public class Test {
         boolean judge1 = true;
         while (judge1) {
             type = input.next().toLowerCase(Locale.ROOT);
-            if (type.equals("黑猫") || type.equals("blackcat") || type.equals("orangecat") || type.equals("橘猫"))
+            if ("黑猫".equals(type) || "blackcat".equals(type) || "orangecat".equals(type) || "橘猫".equals(type)) {
                 judge1 = false;
-            else
+            } else {
                 System.out.println("没有此类型猫 请重新输入");
+            }
         }
         System.out.println("请输入要买猫的名字、年龄、性别：");
         String name = input.next();
@@ -80,14 +85,15 @@ public class Test {
         String sex = null;
         while (judge2) {
             sex = input.next();
-            if (sex.equals("公") || sex.equals("母") || sex.equals("male") || sex.equals("female")) {
+            if ("公".equals(sex) || "母".equals(sex) || "male".equals(sex) || "female".equals(sex)) {
                 judge2 = false;
-            } else
+            } else {
                 System.out.println("性别错误 请重新输入性别：");
+            }
         }
         BlackCat bc = new BlackCat();
         OrangeCat oc = new OrangeCat();
-        if (type.equals("黑猫") || type.equals("blackcat")) {
+        if ("黑猫".equals(type) || "blackcat".equals(type)) {
             bc.name = name;
             bc.age = age;
             bc.sex = sex;
