@@ -1,30 +1,34 @@
-package com.cxq.two;
+package com.HY.Cat;
 
 /**
  * @author CXQ
  * @date 2021/11/12
  */
 
-public class BlackCat extends Cat {
-    public BlackCat() {
-        this.price = 350;
+public class OrangeCat extends Cat {
+    Boolean isFat;
 
+    public OrangeCat() {
+        this.price = 200;
     }
 
-    public BlackCat(String name, int age, Sex sex) {
+
+    public OrangeCat(String name, int age,Sex sex, Boolean isFat) {
         this.name = name;
         this.age = age;
         this.sex = sex;
-        this.price = 350;
+        this.isFat = isFat;
+        this.price = 200;
     }
 
     @Override
     public String toString() {
-        return "BlackCat{" +
+        return "OrangeCat{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
 //                ", price=" + price +
+                ", isFat=" + isFat +
                 '}';
     }
 }
