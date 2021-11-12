@@ -1,24 +1,19 @@
 package com.cxq.two;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  * @author CXQ
  * @date 2021/11/12
  */
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
 public class Test {
     public static void main(String[] args) throws InsufficientBalanceException, CatNotFoundException {
         Scanner input = new Scanner(System.in);
-        Logger log = Logger.getLogger("");
-        log.setLevel(Level.INFO);
-        log.info("-----先搞个店吧！-----");
+        System.out.println("-----先搞个店吧！-----");
         System.out.println("请输入店名、余额：");
         MyCatCafe mcc = new MyCatCafe();
         mcc.name = input.next();

@@ -1,12 +1,13 @@
 package com.cxq.two;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * @author CXQ
  * @date 2021/11/12
  */
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 
 public class MyCatCafe implements CatCafe {
 
@@ -15,15 +16,6 @@ public class MyCatCafe implements CatCafe {
     int profitOne = 0;
     ArrayList<Cat> myCat = new ArrayList<>();
     ArrayList<Customer> myCustomer = new ArrayList<>();
-
-    private void getCatMsg(Cat cat) {
-        if (cat instanceof BlackCat) {
-            System.out.println(((BlackCat) cat));
-        }
-        if (cat instanceof OrangeCat) {
-            System.out.println(((OrangeCat) cat));
-        }
-    }
 
     @Override
     public String toString() {
@@ -45,14 +37,15 @@ public class MyCatCafe implements CatCafe {
 
     @Override
     public void treatCustomer(Customer customer) {
+        Random random = new Random();
         try {
             if (myCat.isEmpty()) {
                 throw new CatNotFoundException("无猫可RUA");
             }
             System.out.println("被 " + customer.name + " RUA猫咪的信息：");
             for (int i = 0; i < customer.ruaNum; i++) {
-                int j = (int) (Math.random() * myCat.size());
-                getCatMsg(myCat.get(j));
+                int j = random.nextInt(myCat.size());
+                System.out.println((myCat.get(j)));
             }
             balance += 15 * customer.ruaNum;
             myCustomer.add(customer);

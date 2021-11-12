@@ -1,11 +1,11 @@
 package com.cxq.two;
 
+import java.time.LocalDate;
+
 /**
  * @author CXQ
  * @date 2021/11/12
  */
-
-import java.time.LocalDate;
 
 public class Customer {
     String name;
