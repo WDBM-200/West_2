@@ -8,7 +8,7 @@ package com.cxq.two;
 public abstract class Cat {
     protected String name;
     protected int age;
-    protected String sex;
+    protected Sex sex;
     protected double price;
 
     public String getName() {
@@ -27,11 +27,11 @@ public abstract class Cat {
         this.age = age;
     }
 
-    public String getSex() {
+    public Sex getSex() {
         return sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 

@@ -6,5 +6,9 @@ package com.cxq.two;
  */
 
 public enum Sex {
-    公, 母;
+    /**
+     * 设置性别
+     */
+    male,female;
+
 }

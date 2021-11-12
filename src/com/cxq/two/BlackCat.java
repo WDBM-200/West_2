@@ -11,7 +11,7 @@ public class BlackCat extends Cat {
 
     }
 
-    public BlackCat(String name, int age, String sex) {
+    public BlackCat(String name, int age, Sex sex) {
         this.name = name;
         this.age = age;
         this.sex = sex;

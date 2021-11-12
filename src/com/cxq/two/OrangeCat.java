@@ -12,7 +12,8 @@ public class OrangeCat extends Cat {
         this.price = 200;
     }
 
-    public OrangeCat(String name, int age, String sex, Boolean isFat) {
+
+    public OrangeCat(String name, int age,Sex sex, Boolean isFat) {
         this.name = name;
         this.age = age;
         this.sex = sex;

@@ -86,19 +86,24 @@ public class Test {
         System.out.println("请输入要买猫的名字、年龄、性别：");
         String name = input.next();
         int age = input.nextInt();
+        Sex sex = null;
         boolean judge2 = true;
-        String sex = null;
-        while (judge2) {
-            sex = input.next();
-            if ("公".equals(sex) || "母".equals(sex) || "male".equals(sex) || "female".equals(sex)) {
+        while (judge2){
+            String sexIn = input.next();
+            if ("公".equals(sexIn) || "male".equals(sexIn)){
                 judge2 = false;
-            } else {
-                System.out.println("性别错误 请重新输入性别：");
+                sex = Sex.male;
+            }
+            else if ("母".equals(sexIn) || "female".equals(sexIn)){
+                judge2 = false;
+                sex = Sex.female;
+            }
+            else {
+                System.out.println("性别错误 重输性别");
             }
         }
-        BlackCat bc = new BlackCat();
-        OrangeCat oc = new OrangeCat();
         if ("黑猫".equals(type) || "blackcat".equals(type)) {
+            BlackCat bc = new BlackCat();
             bc.name = name;
             bc.age = age;
             bc.sex = sex;
@@ -106,6 +111,7 @@ public class Test {
         } else {
             System.out.println("橘猫要胖的吗：");
             boolean isFat = input.nextBoolean();
+            OrangeCat oc = new OrangeCat();
             oc.name = name;
             oc.age = age;
             oc.sex = sex;
