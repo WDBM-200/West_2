@@ -1,12 +1,18 @@
 package com.cxq.two;
 
-public class OrangeCat extends Cat{
+/**
+ * @author CXQ
+ * @date 2021/11/12
+ */
+
+public class OrangeCat extends Cat {
     Boolean isFat;
 
-    public OrangeCat(){
+    public OrangeCat() {
         this.price = 200;
     }
-    public OrangeCat(String name,int age,String sex,Boolean isFat){
+
+    public OrangeCat(String name, int age, String sex, Boolean isFat) {
         this.name = name;
         this.age = age;
         this.sex = sex;

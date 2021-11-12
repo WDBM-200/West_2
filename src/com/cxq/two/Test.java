@@ -1,19 +1,29 @@
 package com.cxq.two;
 
+/**
+ * @author CXQ
+ * @date 2021/11/12
+ */
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class Test {
-    public static void main(String[] args) throws InsufficientBalanceException,CatNotFoundException {
-        Scanner input =new Scanner(System.in);
-        System.out.println("-----先搞个店吧！-----");
+    public static void main(String[] args) throws InsufficientBalanceException, CatNotFoundException {
+        Scanner input = new Scanner(System.in);
+        Logger log = Logger.getLogger("");
+        log.setLevel(Level.INFO);
+        log.info("-----先搞个店吧！-----");
         System.out.println("请输入店名、余额：");
         MyCatCafe mcc = new MyCatCafe();
         mcc.name = input.next();
         mcc.balance = input.nextInt();
-        System.out.println("OK!你的店 "+mcc.name+" 余额为 "+mcc.balance+" 元");
+        System.out.println("OK!你的店 " + mcc.name + " 余额为 " + mcc.balance + " 元");
 //买猫
         System.out.println("-----还没有猫哟！-----");
         System.out.println("请输入要买猫的数量：");
@@ -23,10 +33,10 @@ public class Test {
             Cat aCat = newCat(i);
             try {
                 mcc.buyCat(aCat);
-            }catch (InsufficientBalanceException e){
+            } catch (InsufficientBalanceException e) {
                 e.printStackTrace();
-                System.out.println("---余额不足 仅有 " + mcc.balance + " 元"+" 无法购买---");
-                if (aCat instanceof BlackCat && mcc.balance >= 200){
+                System.out.println("---余额不足 仅有 " + mcc.balance + " 元" + " 无法购买---");
+                if (aCat instanceof BlackCat && mcc.balance >= 200) {
                     System.out.println("可以买一只橘猫哦！买吗？(true or false)");
                     boolean buy = input.nextBoolean();
                     if (buy) {
@@ -34,21 +44,20 @@ public class Test {
                     } else {
                         break;
                     }
-                }
-                else {
+                } else {
                     break;
                 }
             }
         }
-        System.out.println("买猫后余额："+mcc.balance+" 元");
-        System.out.println("店里的猫咪："+mcc.myCat);
+        System.out.println("买猫后余额：" + mcc.balance + " 元");
+        System.out.println("店里的猫咪：" + mcc.myCat);
 //待客
         System.out.println("-----一切就绪 只缺顾客-----");
         System.out.println("请输入到店客人人数：");
         int m = input.nextInt();
         for (int i = 0; i < m; i++) {
             Customer cus = new Customer();
-            System.out.println("请输入第 "+(i + 1)+" 位到店客人信息(姓名 rua次数 到店时间(yyyy-MM-dd)：");
+            System.out.println("请输入第 " + (i + 1) + " 位到店客人信息(姓名 rua次数 到店时间(yyyy-MM-dd)：");
             String name = input.next();
             int ruaNum = input.nextInt();
             String date = input.next();
@@ -58,13 +67,14 @@ public class Test {
             cus.timeGet = localDate;
             mcc.treatCustomer(cus);
         }
-        System.out.println("接待客人后余额："+mcc.balance);
+        System.out.println("接待客人后余额：" + mcc.balance);
         System.out.println("-----该歇业啦！-----");
         System.out.println("请输入歇业日期：");
         String date0 = input.next();
-        LocalDate date1 = LocalDate.parse(date0,DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        LocalDate date1 = LocalDate.parse(date0, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         mcc.close(date1);
     }
+
     public static Cat newCat(int i) {
         Scanner input = new Scanner(System.in);
         System.out.println("请输入第 " + (i + 1) + " 只要买猫的类型：");

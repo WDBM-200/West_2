@@ -1,10 +1,26 @@
 package com.cxq.two;
+
+/**
+ * @author CXQ
+ * @date 2021/11/12
+ */
+
 import java.time.LocalDate;
 
 public class Customer {
     String name;
     int ruaNum;
     LocalDate timeGet;
+
+    public Customer() {
+
+    }
+
+    public Customer(String name, int ruaNum, LocalDate timeGet) {
+        this.name = name;
+        this.ruaNum = ruaNum;
+        this.timeGet = timeGet;
+    }
 
     @Override
     public String toString() {
@@ -13,14 +29,5 @@ public class Customer {
                 ", ruaNum=" + ruaNum +
                 ", timeGet=" + timeGet +
                 '}';
-    }
-
-    public Customer(){
-
-    }
-    public Customer(String name,int ruaNum,LocalDate timeGet){
-        this.name = name;
-        this.ruaNum = ruaNum;
-        this.timeGet = timeGet;
     }
 }

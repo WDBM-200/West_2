@@ -1,9 +1,14 @@
 package com.cxq.two;
 
+/**
+ * @author CXQ
+ * @date 2021/11/12
+ */
+
 public abstract class Cat {
     protected String name;
     protected int age;
-    protected String sex ;
+    protected String sex;
     protected double price;
 
     public String getName() {
@@ -26,7 +31,7 @@ public abstract class Cat {
         return sex;
     }
 
-    public void setSex(String sex){
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -47,7 +52,6 @@ public abstract class Cat {
 //                ", price=" + price +
                 '}';
     }
-
 
 
 }

@@ -1,12 +1,16 @@
 package com.cxq.two;
 
-import sun.applet.resources.MsgAppletViewer;
+/**
+ * @author CXQ
+ * @date 2021/11/12
+ */
 
-public class CatNotFoundException extends BaseException{
-    public CatNotFoundException(){
+public class CatNotFoundException extends BaseException {
+    public CatNotFoundException() {
         super();
     }
-    public CatNotFoundException(String msg){
+
+    public CatNotFoundException(String msg) {
         super(msg);
     }
 

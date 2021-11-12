@@ -1,11 +1,17 @@
 package com.cxq.two;
 
-public class BlackCat extends Cat{
-    public BlackCat(){
+/**
+ * @author CXQ
+ * @date 2021/11/12
+ */
+
+public class BlackCat extends Cat {
+    public BlackCat() {
         this.price = 350;
 
     }
-    public BlackCat(String name,int age,String sex){
+
+    public BlackCat(String name, int age, String sex) {
         this.name = name;
         this.age = age;
         this.sex = sex;

@@ -1,9 +1,14 @@
 package com.cxq.two;
 
+/**
+ * @author CXQ
+ * @date 2021/11/12
+ */
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class MyCatCafe implements CatCafe{
+public class MyCatCafe implements CatCafe {
 
     String name;
     double balance;
@@ -11,12 +16,12 @@ public class MyCatCafe implements CatCafe{
     ArrayList<Cat> myCat = new ArrayList<>();
     ArrayList<Customer> myCustomer = new ArrayList<>();
 
-    private void getCatMsg(Cat cat){
+    private void getCatMsg(Cat cat) {
         if (cat instanceof BlackCat) {
-            System.out.println(((BlackCat)cat));
+            System.out.println(((BlackCat) cat));
         }
         if (cat instanceof OrangeCat) {
-            System.out.println(((OrangeCat)cat));
+            System.out.println(((OrangeCat) cat));
         }
     }
 
@@ -28,28 +33,30 @@ public class MyCatCafe implements CatCafe{
                 ", myCustomer=" + myCustomer +
                 '}';
     }
+
     @Override
-    public void buyCat(Cat cat) throws InsufficientBalanceException{
-            if (balance < cat.price) {
-                throw new InsufficientBalanceException("余额不足 无法购买");
-            }
-            balance -= cat.price;
-            myCat.add(cat);
+    public void buyCat(Cat cat) throws InsufficientBalanceException {
+        if (balance < cat.price) {
+            throw new InsufficientBalanceException("余额不足 无法购买");
         }
+        balance -= cat.price;
+        myCat.add(cat);
+    }
+
     @Override
     public void treatCustomer(Customer customer) {
         try {
             if (myCat.isEmpty()) {
                 throw new CatNotFoundException("无猫可RUA");
             }
-            System.out.println("被 "+customer.name+" RUA猫咪的信息：");
+            System.out.println("被 " + customer.name + " RUA猫咪的信息：");
             for (int i = 0; i < customer.ruaNum; i++) {
                 int j = (int) (Math.random() * myCat.size());
                 getCatMsg(myCat.get(j));
             }
             balance += 15 * customer.ruaNum;
             myCustomer.add(customer);
-        }catch (CatNotFoundException e){
+        } catch (CatNotFoundException e) {
             e.printStackTrace();
             System.out.println("---无猫可RUA---");
         }
@@ -65,6 +72,6 @@ public class MyCatCafe implements CatCafe{
                 profitOne += aCustomer.ruaNum * 15;
             }
         }
-        System.out.println(localDate + " 一天的利息为："+ profitOne);
+        System.out.println(localDate + " 一天的利息为：" + profitOne);
     }
 }
