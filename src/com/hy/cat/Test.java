@@ -1,4 +1,4 @@
-package com.HY.Cat;
+package com.hy.cat;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

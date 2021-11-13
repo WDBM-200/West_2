@@ -1,4 +1,4 @@
-package com.HY.Thread;
+package com.hy.thread;
 
 import java.util.stream.IntStream;
 
