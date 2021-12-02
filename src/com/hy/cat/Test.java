@@ -17,7 +17,7 @@ public class Test {
         System.out.println("请输入店名、余额：");
         MyCatCafe mcc = new MyCatCafe();
         mcc.name = input.next();
-        mcc.balance = input.nextInt();
+        mcc.balance = input.nextDouble();
         System.out.println("OK!你的店 " + mcc.name + " 余额为 " + mcc.balance + " 元");
 //买猫
         System.out.println("-----还没有猫哟！-----");
